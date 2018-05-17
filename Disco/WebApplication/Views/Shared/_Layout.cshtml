@@ -3,21 +3,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Disco IS</title>
+    <title>Disco Fever</title>
+    <link rel="stylesheet" asp-href-include="/styles/main.css" />
 </head>
 <body>
 
-<div id="header">
-    <h1>I am future header</h1>
-</div>
+    @await Component.InvokeAsync("Header")
 
-<div id="content">
-    @RenderBody()
-</div>
+    <main>
+        @RenderBody()
+    </main>
 
-<div id="footer">
-    <h1>I am future footer</h1>
-</div>
+    @await Component.InvokeAsync("Footer")
 
 </body>
 </html>
