@@ -1,12 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication.Models.ViewModels.Header;
 
 namespace WebApplication.Components
 {
-    public class HeaderViewComponent: ViewComponent
+    public class HeaderViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
-            return View();
+            var model = new HeaderViewModel
+            {
+                Links = new[]
+                {
+                    new HeaderLink
+                    {
+                        Text = "Google",
+                        Url = "https://www.google.com/"
+                    },
+                    new HeaderLink
+                    {
+                        Text = "Yandex",
+                        Url = "https://yandex.ru/"
+                    }
+                }
+            };
+            
+            return View(model);
         }
     }
 }
