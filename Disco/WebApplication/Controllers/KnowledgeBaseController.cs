@@ -2,7 +2,7 @@
 
 namespace WebApplication.Controllers
 {
-    public class HomeController : Controller
+    public class KnowledgeBaseController : Controller
     {
         public ViewResult Index() => View();
     }

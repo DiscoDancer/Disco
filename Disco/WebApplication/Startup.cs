@@ -26,7 +26,7 @@ namespace WebApplication
                 routes.MapRoute(name: null, template: "{controller}/{action}");
                 routes.MapRoute(
                     name: "default_route",
-                    template: "{controller=Home}/{action=Index}");
+                    template: "{controller=Resume}/{action=Index}");
             });
         }
     }
