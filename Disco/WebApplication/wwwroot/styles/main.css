@@ -74,6 +74,7 @@ header {
 
     header li {
         font-size: 27px;
+        padding-right: 5px;
     }
 
 /* end of header */
