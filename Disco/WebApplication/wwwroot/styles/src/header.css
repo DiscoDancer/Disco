@@ -1,0 +1,20 @@
+﻿/* header */
+header {
+    background-color: gainsboro;
+    padding: 0 8px;
+}
+
+header li, header ul, header h3 {
+    display: inline-block;
+}
+
+header h3 {
+    font-size: 30px;
+}
+
+header li {
+    font-size: 27px;
+    padding-right: 5px;
+}
+
+/* end of header */
