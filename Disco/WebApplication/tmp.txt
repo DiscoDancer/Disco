@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+      <key><![CDATA[Mo878oUEd5nAWZaMqqcbg]]></key>
+    <method><![CDATA[review_list]]></method>
+  </Request>
+  
+  <shelf exclusive='true' id='263327234' name='currently-reading' sortable='false'></shelf>
+
+<reviews start="1" end="1" total="1">
+    <review>
+  <id>2380481678</id>
+    <book>
+  <id type="integer">4122</id>
+  <isbn>0060566108</isbn>
+  <isbn13>9780060566104</isbn13>
+  <text_reviews_count type="integer">424</text_reviews_count>
+  <uri>kca://book/amzn1.gr.book.v1.aaB1qfww8HYjaNaD6FDb0w</uri>
+  <title>Built to Last: Successful Habits of Visionary Companies</title>
+  <title_without_series>Built to Last: Successful Habits of Visionary Companies</title_without_series>
+  <image_url>https://images.gr-assets.com/books/1412047084m/4122.jpg</image_url>
+  <small_image_url>https://images.gr-assets.com/books/1412047084s/4122.jpg</small_image_url>
+  <large_image_url/>
+  <link>https://www.goodreads.com/book/show/4122.Built_to_Last</link>
+  <num_pages>368</num_pages>
+  <format>Hardcover</format>
+  <edition_information/>
+  <publisher>HarperBusiness</publisher>
+  <publication_day>2</publication_day>
+  <publication_year>2004</publication_year>
+  <publication_month>11</publication_month>
+  <average_rating>3.99</average_rating>
+  <ratings_count>44943</ratings_count>
+  <description>"This is not a book about charismatic visionary leaders. It is not about visionary product concepts or visionary products or visionary market insights. Nor is it about just having a corporate vision. This is a book about something far more important, enduring, and substantial. This is a book about visionary companies." So write Jim Collins and Jerry Porras in this groundbreaking book that shatters myths, provides new insights, and gives practical guidance to those who would like to build landmark companies that stand the test of time.&lt;br /&gt;&lt;br /&gt;Drawing upon a six-year research project at the Stanford University Graduate School of Business, Collins and Porras took eighteen truly exceptional and long-lasting companies -- they have an average age of nearly one hundred years and have outperformed the general stock market by a factor of fifteen since 1926 -- and studied each company in direct comparison to one of its top competitors. They examined the companies from their very beginnings to the present day -- as start-ups, as midsize companies, and as large corporations. Throughout, the authors asked: "What makes the truly exceptional companies different from other companies?"&lt;br /&gt;&lt;br /&gt;What separates General Electric, 3M, Merck, Wal-Mart, Hewlett-Packard, Walt Disney, and Philip Morris from their rivals? How, for example, did Procter &amp;amp; Gamble, which began life substantially behind rival Colgate, eventually prevail as the premier institution in its industry? How was Motorola able to move from a humble battery repair business into integrated circuits and cellular communications, while Zenith never became dominant in anything other than TVs? How did Boeing unseat McDonnell Douglas as the world's best commercial aircraft company -- what did Boeing have that McDonnell Douglas lacked?&lt;br /&gt;&lt;br /&gt;By answering such questions, Collins and Porras go beyond the incessant barrage of management buzzwords and fads of the day to discover timeless qualities that have consistently distinguished out-standing companies. They also provide inspiration to all executives and entrepreneurs by destroying the false but widely accepted idea that only charismatic visionary leaders can build visionary companies.&lt;br /&gt;&lt;br /&gt;Filled with hundreds of specific examples and organized into a coherent framework of practical concepts that can be applied by managers and entrepreneurs at all levels, &lt;em&gt;Built to Last&lt;/em&gt; provides a master blueprint for building organizations that will prosper long into the twenty-first century and beyond.</description>
+<authors>
+<author>
+<id>2826</id>
+<name>James C. Collins</name>
+<role></role>
+<image_url nophoto='false'>
+<![CDATA[https://images.gr-assets.com/authors/1244805468p5/2826.jpg]]>
+</image_url>
+<small_image_url nophoto='false'>
+<![CDATA[https://images.gr-assets.com/authors/1244805468p2/2826.jpg]]>
+</small_image_url>
+<link><![CDATA[https://www.goodreads.com/author/show/2826.James_C_Collins]]></link>
+<average_rating>4.03</average_rating>
+<ratings_count>166562</ratings_count>
+<text_reviews_count>5244</text_reviews_count>
+</author>
+</authors>
+  <published>2004</published>
+<work>  <id>147916</id>
+  <uri>kca://work/amzn1.gr.work.v1.kpasR-nSXhvKN3KKz7cCRQ</uri>
+</work></book>
+
+
+  <rating>0</rating>
+  <votes>0</votes>
+  <spoiler_flag>false</spoiler_flag>
+  <spoilers_state>none</spoilers_state>
+  
+
+<shelves>
+
+    <shelf exclusive='true' id='263327234' name='currently-reading' review_shelf_id='2026762990' sortable='false'></shelf>
+
+</shelves>
+
+  <recommended_for></recommended_for>
+  <recommended_by></recommended_by>
+  <started_at>Thu May 03 00:36:56 -0700 2018</started_at>
+  <read_at></read_at>
+  <date_added>Thu May 03 00:36:56 -0700 2018</date_added>
+  <date_updated>Thu May 03 00:36:56 -0700 2018</date_updated>
+  <read_count>1</read_count>
+  <body>
+  </body>
+
+  
+
+  <comments_count>0</comments_count>
+    <url><![CDATA[https://www.goodreads.com/review/show/2380481678]]></url>
+  <link><![CDATA[https://www.goodreads.com/review/show/2380481678]]></link>
+    <owned>0</owned>
+</review>
+
+</reviews>
+
+</GoodreadsResponse>

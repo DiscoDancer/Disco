@@ -1,0 +1,21 @@
+﻿@model WebApplication.Models.Resume.Book
+
+<figure>
+    <img src="@Model.CoverUrl"/>
+    <figcaption>
+        <ul>
+            <li>
+                @Model.Name
+            </li>
+            <li>
+                @Model.Author
+            </li>
+            @if (Model.Year > 0)
+            {
+                <li>
+                    @Model.Year
+                </li>
+            }
+        </ul>
+    </figcaption>
+</figure>
