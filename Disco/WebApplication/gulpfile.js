@@ -1,6 +1,6 @@
-﻿var gulp = require('gulp');
-var concat = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
+﻿var gulp = require("gulp");
+var concat = require("gulp-concat");
+var sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("bundle-styles", function () {
     return gulp.src("wwwroot/styles/**/*.css")
