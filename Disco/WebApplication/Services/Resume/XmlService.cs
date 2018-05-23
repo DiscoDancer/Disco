@@ -8,7 +8,7 @@ namespace WebApplication.Services.Resume
 {
     internal static class XmlService
     {
-        public static XmlDocument CreateXmlDocumentFromString(string content)
+        public static XmlDocument CreateXmlDocument(string content)
         {
             File.WriteAllText("tmp.txt", content);
 
@@ -18,7 +18,7 @@ namespace WebApplication.Services.Resume
             return xmlDoc;
         }
 
-        public static List<Book> ParseBooksFromXmlDocument(XmlDocument document)
+        public static List<Book> ParseBooks(XmlDocument document)
         {
             var list = new List<Book>();
 

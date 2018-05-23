@@ -9,7 +9,7 @@ namespace WebApplication.Controllers
         {
             var shelves = new[]
             {
-                ShelvesService.ReadBooks,
+                ShelvesService.ReadShelf,
                 ShelvesService.CurrentShelf
             };
 

@@ -9,14 +9,10 @@ namespace WebApplication.Services.Resume
         private const string Id = "80865068";
 
         public static string SendRequestForCurrentShelf()
-        {
-            return SendRequestForShelf(CurrentShelf.GoodReadsName);
-        }
+        => SendRequestForShelf(CurrentShelf.GoodReadsName);
 
         public static string SendRequestForReadShelf()
-        {
-            return SendRequestForShelf(ReadShelf.GoodReadsName);
-        }
+        => SendRequestForShelf(ReadShelf.GoodReadsName);
 
         private static string SendRequestForShelf(string shelf)
         {
@@ -26,7 +22,7 @@ namespace WebApplication.Services.Resume
             request.AddParameter("id", Id);
             request.AddParameter("shelf", shelf);
 
-            IRestResponse response = client.Execute(request);
+            var response = client.Execute(request);
             var content = response.Content;
 
             return content;

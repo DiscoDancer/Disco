@@ -11,25 +11,25 @@ namespace WebApplication.Services.Resume
             get
             {
                 var xmlContent = APIService.SendRequestForCurrentShelf();
-                var xmlDoc = XmlService.CreateXmlDocumentFromString(xmlContent);
+                var xmlDoc = XmlService.CreateXmlDocument(xmlContent);
 
                 return new CurrentShelf
                 {
-                    Books = XmlService.ParseBooksFromXmlDocument(xmlDoc)
+                    Books = XmlService.ParseBooks(xmlDoc)
                 };
             }
         }
 
-        public static Shelf ReadBooks 
+        public static Shelf ReadShelf
         {
             get
             {
                 var xmlContent = APIService.SendRequestForReadShelf();
-                var xmlDoc = XmlService.CreateXmlDocumentFromString(xmlContent);
+                var xmlDoc = XmlService.CreateXmlDocument(xmlContent);
 
                 return new ReadShelf
                 {
-                    Books = XmlService.ParseBooksFromXmlDocument(xmlDoc)
+                    Books = XmlService.ParseBooks(xmlDoc)
                 };
             }
         }
