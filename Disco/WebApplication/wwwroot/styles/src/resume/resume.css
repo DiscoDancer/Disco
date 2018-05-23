@@ -1,3 +1,46 @@
 ﻿#resume h1 {
     font-size: 33px;
 }
+
+#resume .shelf {
+    margin: 30px 0;
+}
+
+#resume .shelf-name {
+    padding-bottom: 10px;
+}
+
+#resume .shelf:last-child {
+    margin-bottom: 0;
+    padding-bottom: 60px;
+}
+
+#resume figure {
+    display: inline-block;
+    vertical-align: top;
+    width: 210px;
+    margin: 0 10px 10px 10px;
+}
+
+#resume figcaption {
+    font: 0.8em Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+#resume .book-name {
+    font-weight: bold;
+}
+
+#resume figure img {
+    border: 1px solid #666;
+    background-color: #FFF;
+    padding: 4px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+    display: block;
+    margin: 0 auto;
+}
+
+#resume li, ul {
+    list-style-type: none;
+}
