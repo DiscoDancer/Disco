@@ -9,8 +9,12 @@
     <PackageReference Include="RestSharp" Version="106.2.2" />
   </ItemGroup>
 
-  <Target Name="MyPreCompileTarget" AfterTargets="Build">
+  <Target Name="BundleStyles" AfterTargets="Build">
     <Exec Command="gulp bundle-styles" />
+  </Target>
+
+  <Target Name="BundleScripts" AfterTargets="BundleStyles">
+    <Exec Command="gulp bundle-scripts" />
   </Target>
   
 </Project>

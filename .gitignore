@@ -330,8 +330,12 @@ ASALocalRun/
 .mfractor/
 
 
-# CSS bundles
+# Front-end bundles
 **/wwwroot/styles/dist/*
+**/wwwroot/scripts/dist/*
 
 # Publish Profiles
 Disco/Publish Profiles/*
+
+# Temporary files
+Disco/WebApplication/tmp.txt
