@@ -332,3 +332,6 @@ ASALocalRun/
 
 # CSS bundles
 **/wwwroot/styles/dist/*
+
+# Publish Profiles
+Disco/Publish Profiles/*
