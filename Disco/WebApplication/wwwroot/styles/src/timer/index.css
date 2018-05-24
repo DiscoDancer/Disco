@@ -47,18 +47,6 @@
     margin-right: auto;
 }
 
-.timer-frontpage .options-button-wrapper-a {
-    text-decoration: inherit;
-    color: inherit;
-    cursor: auto;
-}
-
-    .timer-frontpage .options-button-wrapper-a:visited {
-        text-decoration: inherit;
-        color: inherit;
-        cursor: auto;
-    }
-
 .timer-frontpage .options-button {
     width: 140px;
     height: 40px;
@@ -68,4 +56,5 @@
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+    background-color: lightgray;
 }

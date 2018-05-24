@@ -1,4 +1,24 @@
-﻿.timer-container {
+﻿/*
+    Not content order related styles
+*/
+
+.button-achor-wrapper {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+    .button-achor-wrapper:visited {
+        text-decoration: inherit;
+        color: inherit;
+        cursor: auto;
+    }
+
+/*
+    End of Not content order related styles
+*/
+
+.timer-container {
     max-width: 80%;
     margin: 60px auto;
 }

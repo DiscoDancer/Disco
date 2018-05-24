@@ -10,7 +10,7 @@ namespace WebApplication.Controllers
 
         public ViewResult History() => View();
 
-        public ViewResult BrowseActivities() => View();
+        public ViewResult EditActivities() => View();
 
         public ViewResult EditActivity() => View();
     }
