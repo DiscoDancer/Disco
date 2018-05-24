@@ -3,20 +3,36 @@
     margin: 60px auto;
 }
 
+.timer-block {
+    margin-top: 30px;
+}
+
+.timer-block:first-child {
+    margin-top: 0;
+}
+
 .timer-caption {
     text-align: center;
     font-size: 60px;
+}
+
+.timer-activity select {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    padding: 5px;
 }
 
 .timer-time {
     font-size: 100px;
     font-weight: bold;
     text-align: center;
-    margin-top: 50px;
 }
 
 .timer-control-buttons {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 500px;
 }
 
@@ -28,7 +44,7 @@
     margin-right: 5px;
     border-color: black;
     border-radius: 5px;
-    margin-top: 50px;
+    font-weight: bold;
 }
 
 .start-button {
@@ -41,4 +57,20 @@
 
 .reset-button {
     background-color: lightgray;
+}
+
+.timer-options-buttons {
+    width: 325px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.options-button {
+    width: 140px;
+    height: 40px;
+    margin-right: 5px;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
 }
