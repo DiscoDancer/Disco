@@ -6,7 +6,7 @@
         Tomato Timer
     </h1>
 
-    <form asp-controller="Timer" asp-action="EditActivities">
+    <form>
 
         <fieldset class="timer-block select-sound-block">
             <label>
@@ -19,13 +19,11 @@
                 </option>
             </select>
         </fieldset>
-
-        <fieldset class="timer-block">
-            <input type="submit" class="edit-activities-button" value="Edit Activities">
-
-            </input>
-        </fieldset>
-
     </form>
 
+    <a asp-controller="Timer" asp-action="EditActivities" class="button-achor-wrapper timer-block">
+        <button class="edit-activities-button">
+            Edit Activities
+        </button>
+    </a>
 </div>

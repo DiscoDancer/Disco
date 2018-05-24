@@ -1,1 +1,22 @@
-﻿<h1>Hello from Edit Activity</h1>
+﻿<div class="timer-edit-activity timer-container">
+
+    <img class="timer-logo" src="/images/timer/tomato-icon.png" alt="tomato icon"/>
+
+    <h1 class="timer-caption timer-block">
+        Tomato Timer
+    </h1>
+    
+    <form asp-action="EditActivities">
+        <fieldset>
+            <label>
+                Name
+            </label>
+            <input type="text" />
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="Save"/>
+            <input type="button" value="Cancel" onclick="history.back()"/>
+        </fieldset>
+    </form>
+
+</div>

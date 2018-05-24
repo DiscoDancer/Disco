@@ -1,31 +1,31 @@
-﻿.timer-activities table {
+﻿.timer-edit-activities table {
     border-collapse: collapse;
     width: 100%;
 }
 
-.timer-activities table td,
-.timer-activities table th {
+.timer-edit-activities table td,
+.timer-edit-activities table th {
     border: 1px solid black;
     padding: 8px;
 }
 
 
-.timer-activities table th {
+.timer-edit-activities table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: lightgrey;
 }
 
-.timer-activities table tr:nth-child(even) {
+.timer-edit-activities table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.timer-activities table td:last-child {
+.timer-edit-activities table td:last-child {
     text-align: center;
 }
 
-.timer-activities .delete-icon {
+.timer-edit-activities .delete-icon {
     background-color: red;
     display: inline-block;
     border: solid black 2px;
@@ -33,7 +33,7 @@
     padding: 3px;
 }
 
-.timer-activities .edit-icon {
+.timer-edit-activities .edit-icon {
     background-color: green;
     display: inline-block;
     border: solid black 2px;
@@ -41,7 +41,7 @@
     padding: 3px;
 }
 
-.timer-activities .add-activity-button {
+.timer-edit-activities .add-activity-button {
     font-size: 20px;
     padding: 5px;
     height: 40px;
