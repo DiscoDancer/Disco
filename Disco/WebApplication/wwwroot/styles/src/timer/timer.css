@@ -1,0 +1,44 @@
+﻿#timer {
+    max-width: 80%;
+    margin: 60px auto;
+}
+
+.timer-caption {
+    text-align: center;
+    font-size: 60px;
+}
+
+.timer-time {
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.timer-control-buttons {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.control-button {
+    font-size: 20px;
+    width: 150px;
+    height: 70px;
+    text-transform: uppercase;
+    margin-right: 5px;
+    border-color: black;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.start-button {
+    background-color: lightgreen;
+}
+
+.stop-button {
+    background-color: lightcoral;
+}
+
+.reset-button {
+    background-color: lightgray;
+}
