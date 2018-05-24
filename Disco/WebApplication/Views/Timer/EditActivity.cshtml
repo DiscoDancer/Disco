@@ -6,16 +6,16 @@
         Tomato Timer
     </h1>
     
-    <form asp-action="EditActivities">
+    <form asp-action="EditActivities" class="timer-block">
         <fieldset>
             <label>
                 Name
             </label>
-            <input type="text" />
+            <input type="text" class="name-input" />
         </fieldset>
-        <fieldset>
-            <input type="submit" value="Save"/>
-            <input type="button" value="Cancel" onclick="history.back()"/>
+        <fieldset class="buttons-row timer-block">
+            <input type="submit" class="control-button save-button" value="Save"/>
+            <input type="button" class="control-button cancel-button" value="Cancel" onclick="history.back()"/>
         </fieldset>
     </form>
 
