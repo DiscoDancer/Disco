@@ -1,6 +1,6 @@
-﻿<div class="timer-frontpage">
+﻿<div class="timer-frontpage timer-container">
 
-    <img class="timer-logo" src="/images/timer/tomato-icon.png" alt="tomato icon"/>
+    <img class="timer-logo" src="/images/timer/tomato-icon.png" alt="tomato icon" />
 
     <h1 class="timer-caption timer-block">
         Tomato Timer
@@ -31,12 +31,16 @@
     </div>
 
     <div class="timer-options-buttons timer-block">
-        <button class="options-button">
-            Settings
-        </button>
-        <button class="options-button">
-            History
-        </button>
+        <a asp-controller="Timer" asp-action="Settings" class="options-button-wrapper-a">
+            <button class="options-button">
+                Settings
+            </button>
+        </a>
+        <a asp-controller="Timer" asp-action="History" class="options-button-wrapper-a">
+            <button class="options-button">
+                History
+            </button>
+        </a>
     </div>
 
 </div>

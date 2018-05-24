@@ -1,0 +1,23 @@
+﻿.timer-container {
+    max-width: 80%;
+    margin: 60px auto;
+}
+
+.timer-block {
+    margin-top: 30px;
+}
+
+    .timer-block:first-child {
+        margin-top: 0;
+    }
+
+.timer-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timer-caption {
+    text-align: center;
+    font-size: 60px;
+}

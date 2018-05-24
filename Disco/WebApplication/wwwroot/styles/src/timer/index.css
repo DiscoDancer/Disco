@@ -1,82 +1,71 @@
-﻿.timer-frontpage {
-    max-width: 80%;
-    margin: 60px auto;
+﻿.timer-frontpage .timer-activity select {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    padding: 5px;
 }
 
-    .timer-frontpage .timer-block {
-        margin-top: 30px;
+.timer-frontpage .timer-time {
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.timer-frontpage .timer-control-buttons {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+.timer-frontpage .control-button {
+    font-size: 20px;
+    width: 150px;
+    height: 70px;
+    text-transform: uppercase;
+    margin-right: 5px;
+    border-color: black;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.timer-frontpage .start-button {
+    background-color: lightgreen;
+}
+
+.timer-frontpage .stop-button {
+    background-color: lightcoral;
+}
+
+.timer-frontpage .reset-button {
+    background-color: lightgray;
+}
+
+.timer-frontpage .timer-options-buttons {
+    width: 325px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timer-frontpage .options-button-wrapper-a {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+    .timer-frontpage .options-button-wrapper-a:visited {
+        text-decoration: inherit;
+        color: inherit;
+        cursor: auto;
     }
 
-        .timer-frontpage .timer-block:first-child {
-            margin-top: 0;
-        }
-
-    .timer-frontpage .timer-logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .timer-frontpage .timer-caption {
-        text-align: center;
-        font-size: 60px;
-    }
-
-    .timer-frontpage .timer-activity select {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 20px;
-        padding: 5px;
-    }
-
-    .timer-frontpage .timer-time {
-        font-size: 100px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .timer-frontpage .timer-control-buttons {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 500px;
-    }
-
-    .timer-frontpage .control-button {
-        font-size: 20px;
-        width: 150px;
-        height: 70px;
-        text-transform: uppercase;
-        margin-right: 5px;
-        border-color: black;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
-    .timer-frontpage .start-button {
-        background-color: lightgreen;
-    }
-
-    .timer-frontpage .stop-button {
-        background-color: lightcoral;
-    }
-
-    .timer-frontpage .reset-button {
-        background-color: lightgray;
-    }
-
-    .timer-frontpage .timer-options-buttons {
-        width: 325px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .timer-frontpage .options-button {
-        width: 140px;
-        height: 40px;
-        margin-right: 5px;
-        border-color: black;
-        border-radius: 5px;
-        font-size: 15px;
-        font-weight: bold;
-    }
+.timer-frontpage .options-button {
+    width: 140px;
+    height: 40px;
+    margin-right: 5px;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
