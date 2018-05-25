@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models.Timer;
 
 namespace WebApplication.Controllers
@@ -23,8 +24,50 @@ namespace WebApplication.Controllers
 
         public ViewResult History() => View();
 
-        public ViewResult EditActivities() => View();
 
-        public ViewResult EditActivity() => View();
+        #region Timer Activities
+
+        [HttpGet]
+        public ViewResult EditActivities()
+        {
+            var activities = _activityRepository.TimerActivities;
+
+            return View(activities);
+        }
+
+        [HttpGet]
+        public ViewResult CreateActivity() => View("EditActivity", new TimerActivity());
+
+
+        [HttpGet]
+        public ViewResult EditActivity(int activityId)
+        {
+            return View(_activityRepository.TimerActivities
+                .FirstOrDefault(x => x.ID == activityId));
+        }
+
+        [HttpPost]
+        public IActionResult EditActivity(TimerActivity activity)
+        {
+            if (!ModelState.IsValid) return View(activity);
+
+            _activityRepository.Save(activity);
+            TempData["message"] = $"Activity {activity.Name} has been saved";
+            return RedirectToAction("EditActivities");
+        }
+
+        public IActionResult DeleteActivity(int activityId)
+        {
+            var deletedActivity = _activityRepository.Delete(activityId);
+
+            if (deletedActivity != null)
+            {
+                TempData["message"] = $"Activity {deletedActivity.Name} was deleted";
+            }
+
+            return RedirectToAction("EditActivities");
+        }
+
+        #endregion
     }
 }

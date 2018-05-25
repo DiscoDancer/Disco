@@ -1,6 +1,7 @@
 ﻿.timer-edit-activities table {
     border-collapse: collapse;
     width: 100%;
+    display: table;
 }
 
 .timer-edit-activities table td,
@@ -31,6 +32,9 @@
     border: solid black 2px;
     color: white;
     padding: 3px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
 }
 
 .timer-edit-activities .edit-icon {
@@ -39,6 +43,9 @@
     border: solid black 2px;
     color: white;
     padding: 3px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
 }
 
 .timer-edit-activities .add-activity-button {

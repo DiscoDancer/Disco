@@ -1,4 +1,6 @@
-﻿<div class="timer-edit-activities timer-container">
+﻿@model IQueryable<WebApplication.Models.Timer.TimerActivity>
+
+<div class="timer-edit-activities timer-container">
     <img class="timer-logo" src="/images/timer/tomato-icon.png" alt="tomato icon" />
 
     <div class="timer-caption timer-block">
@@ -22,30 +24,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    Work at Elo
-                </td>
-                <td>
-                    <span class="edit-icon">!</span>
-                    <span class="delete-icon">X</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Read CSS Book
-                </td>
-                <td>
-                    <span class="edit-icon">!</span>
-                    <span class="delete-icon">X</span>
-                </td>
-            </tr>
+            @foreach (var activity in Model)
+            {
+                <tr>
+                    <td>
+                        @activity.Name
+                    </td>
+                    <td>
+                        <a asp-action="EditActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
+                            <span class="edit-icon">!</span>
+                        </a>
+                        <a asp-action="DeleteActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
+                            <span class="delete-icon">X</span>
+                        </a> 
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 
-    <a asp-action="EditActivity">
+    <a asp-action="CreateActivity" asp-route-activityId="0" class="anchor-no-visually-effects">
         <button class="add-activity-button">
-            Add
+            Create
         </button>
     </a>
 

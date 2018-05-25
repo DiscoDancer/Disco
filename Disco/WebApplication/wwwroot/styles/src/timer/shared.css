@@ -2,18 +2,17 @@
     Not content order related styles
 */
 
-.button-achor-wrapper {
+.anchor-no-visually-effects {
     text-decoration: inherit;
     color: inherit;
     cursor: auto;
 }
 
-    .button-achor-wrapper:visited {
+    .anchor-no-visually-effects:visited {
         text-decoration: inherit;
         color: inherit;
         cursor: auto;
     }
-
 /*
     End of Not content order related styles
 */
@@ -25,6 +24,7 @@
 
 .timer-block {
     margin-top: 30px;
+    display: block;
 }
 
     .timer-block:first-child {
