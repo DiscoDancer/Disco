@@ -7,5 +7,7 @@ namespace WebApplication.Models.Timer
         IQueryable<TimerActivity> TimerActivities { get; }
 
         void Save(TimerActivity activity);
+
+        TimerActivity Delete(int activityId);
     }
 }

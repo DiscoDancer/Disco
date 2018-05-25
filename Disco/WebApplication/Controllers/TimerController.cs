@@ -24,6 +24,10 @@ namespace WebApplication.Controllers
 
         public ViewResult History() => View();
 
+
+        #region Timer Activities
+
+        [HttpGet]
         public ViewResult EditActivities()
         {
             var activities = _activityRepository.TimerActivities;
@@ -31,6 +35,7 @@ namespace WebApplication.Controllers
             return View(activities);
         }
 
+        [HttpGet]
         public ViewResult CreateActivity() => View("EditActivity", new TimerActivity());
 
 
@@ -49,5 +54,14 @@ namespace WebApplication.Controllers
             _activityRepository.Save(activity);
             return RedirectToAction("EditActivities");
         }
+
+        public IActionResult DeleteActivity(int activityId)
+        {
+            var deletedActivity = _activityRepository.Delete(activityId);
+
+            return RedirectToAction("EditActivities");
+        }
+
+        #endregion
     }
 }

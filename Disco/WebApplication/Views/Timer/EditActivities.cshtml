@@ -33,8 +33,10 @@
                     <td>
                         <a asp-action="EditActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
                             <span class="edit-icon">!</span>
-                        </a>  
-                        <span class="delete-icon">X</span>
+                        </a>
+                        <a asp-action="DeleteActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
+                            <span class="delete-icon">X</span>
+                        </a> 
                     </td>
                 </tr>
             }

@@ -33,5 +33,18 @@ namespace WebApplication.Models.Timer
 
             _context.SaveChanges();
         }
+
+        public TimerActivity Delete(int activityId)
+        {
+            var dbEntry = _context.TimerActivities
+                .FirstOrDefault(x => x.ID == activityId);
+
+            if (dbEntry == null) return null;
+
+            _context.TimerActivities.Remove(dbEntry);
+            _context.SaveChanges();
+
+            return dbEntry;
+        }
     }
 }
