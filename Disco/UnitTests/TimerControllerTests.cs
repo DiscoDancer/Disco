@@ -89,7 +89,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Cannot_Edit_Activity()
+        public void Cannot_Edit_Nonexistent_Activity()
         {
             // Arrange - create the mock repository
             var mock = new Mock<IActivityRepository>();
@@ -131,6 +131,79 @@ namespace UnitTests
             // Assert - check the result type is a redirection
             Assert.IsType<RedirectToActionResult>(result);
             Assert.Equal("EditActivities", (result as RedirectToActionResult)?.ActionName);
+        }
+
+        [Fact]
+        public void Cannot_Save_Invalid_Activity()
+        {
+            // Arrange - create the mock repository
+            var mock = new Mock<IActivityRepository>();
+
+            // Arrange - create a controller
+            var target = new TimerController(mock.Object);
+
+            var activity = new TimerActivity { Name = "Potato" };
+
+            // Arrange - add an error to the model state
+            target.ModelState.AddModelError("error", "error");
+
+            // Act - try to save the product
+            var result = target.EditActivity(activity);
+
+            // Assert - check that the repository was not called
+            mock.Verify(m => m.Save(It.IsAny<TimerActivity>()), Times.Never());
+            // Assert - check the method result type
+            Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public void Can_Delete_Valid_Activity()
+        {
+            // Arrange - creating an activity
+            var activity = new TimerActivity { Name = "Potato", ID = 2};
+
+            // Arrange - create the mock repository
+            var mock = new Mock<IActivityRepository>();
+            mock.Setup(m => m.TimerActivities).Returns(new [] {
+                new TimerActivity {ID = 1, Name = "P1"},
+                activity,
+                new TimerActivity {ID = 3, Name = "P3"},
+            }.AsQueryable());
+
+            // Arrange - create a controller
+            var target = new TimerController(mock.Object);
+
+            // Act - delete the product
+            target.DeleteActivity(activity.ID);
+
+            // Assert - ensure that the repository delete method was
+            // called with the correct Product
+            mock.Verify(m => m.Delete(activity.ID));
+        }
+
+        [Fact]
+        public void Cannot_Delete_Nonexistent_Activity()
+        {
+            // Arrange - creating an activity
+            var activity = new TimerActivity { Name = "Potato", ID = 2 };
+
+            // Arrange - create the mock repository
+            var mock = new Mock<IActivityRepository>();
+            mock.Setup(m => m.TimerActivities).Returns(new[] {
+                new TimerActivity {ID = 1, Name = "P1"},
+                new TimerActivity {ID = 3, Name = "P3"},
+            }.AsQueryable());
+
+            // Arrange - create a controller
+            var target = new TimerController(mock.Object);
+
+            // Act - delete the product
+            target.DeleteActivity(activity.ID);
+
+            // Assert - ensure that the repository delete method was
+            // called with the correct Product
+            mock.Verify(m => m.Delete(activity.ID));
+            Assert.Equal(2, mock.Object.TimerActivities.Count());
         }
 
         private static T GetViewModel<T>(IActionResult result) where T : class
