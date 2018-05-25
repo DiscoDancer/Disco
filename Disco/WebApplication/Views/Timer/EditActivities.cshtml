@@ -1,4 +1,6 @@
-﻿<div class="timer-edit-activities timer-container">
+﻿@model IQueryable<WebApplication.Models.Timer.TimerActivity>
+
+<div class="timer-edit-activities timer-container">
     <img class="timer-logo" src="/images/timer/tomato-icon.png" alt="tomato icon" />
 
     <div class="timer-caption timer-block">
@@ -22,24 +24,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    Work at Elo
-                </td>
-                <td>
-                    <span class="edit-icon">!</span>
-                    <span class="delete-icon">X</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Read CSS Book
-                </td>
-                <td>
-                    <span class="edit-icon">!</span>
-                    <span class="delete-icon">X</span>
-                </td>
-            </tr>
+            @foreach (var activity in Model)
+            {
+                <tr>
+                    <td>
+                        @activity.Name
+                    </td>
+                    <td>
+                        <span class="edit-icon">!</span>
+                        <span class="delete-icon">X</span>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 

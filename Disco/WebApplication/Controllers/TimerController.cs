@@ -23,7 +23,12 @@ namespace WebApplication.Controllers
 
         public ViewResult History() => View();
 
-        public ViewResult EditActivities() => View();
+        public ViewResult EditActivities()
+        {
+            var activities = _activityRepository.TimerActivities;
+
+            return View(activities);
+        }
 
         public ViewResult EditActivity() => View();
     }
