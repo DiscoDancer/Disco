@@ -31,7 +31,9 @@ namespace WebApplication.Controllers
             return View(activities);
         }
 
-       
+        public ViewResult CreateActivity() => View("EditActivity", new TimerActivity());
+
+
         [HttpGet]
         public ViewResult EditActivity(int activityId)
         {
