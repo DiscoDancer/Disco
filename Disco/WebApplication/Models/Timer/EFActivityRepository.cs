@@ -11,6 +11,27 @@ namespace WebApplication.Models.Timer
             _context = ctx;
         }
 
-        public IQueryable<TimerActivity> TimerActivities => _context.TimerActivities;
+        public IQueryable<TimerActivity> TimerActivities => 
+            _context.TimerActivities;
+
+        public void Save(TimerActivity activity)
+        {
+            if (activity.ID == 0)
+            {
+                _context.TimerActivities.Add(activity);
+            }
+            else
+            {
+                var dbEntry = _context.TimerActivities
+                    .FirstOrDefault(x => x.ID == activity.ID);
+
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = activity.Name;
+                }
+            }
+
+            _context.SaveChanges();
+        }
     }
 }

@@ -31,3 +31,12 @@
 .timer-edit-activity .cancel-button {
     background-color: lightcoral;
 }
+
+.timer-edit-activity .text-danger {
+    color: red;
+}
+
+.timer-edit-activity .field-validation-error {
+    display: block;
+    text-align: center;
+}

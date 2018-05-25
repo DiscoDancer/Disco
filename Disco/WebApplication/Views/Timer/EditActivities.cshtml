@@ -31,7 +31,9 @@
                         @activity.Name
                     </td>
                     <td>
-                        <span class="edit-icon">!</span>
+                        <a asp-action="EditActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
+                            <span class="edit-icon">!</span>
+                        </a>  
                         <span class="delete-icon">X</span>
                     </td>
                 </tr>
@@ -39,7 +41,7 @@
         </tbody>
     </table>
 
-    <a asp-action="EditActivity">
+    <a asp-action="EditActivity" asp-route-activityId="0" class="anchor-no-visually-effects">
         <button class="add-activity-button">
             Add
         </button>

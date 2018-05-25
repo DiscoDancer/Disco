@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models.Timer;
 
 namespace WebApplication.Controllers
@@ -30,6 +31,21 @@ namespace WebApplication.Controllers
             return View(activities);
         }
 
-        public ViewResult EditActivity() => View();
+       
+        [HttpGet]
+        public ViewResult EditActivity(int activityId)
+        {
+            return View(_activityRepository.TimerActivities
+                .FirstOrDefault(x => x.ID == activityId));
+        }
+
+        [HttpPost]
+        public IActionResult EditActivity(TimerActivity activity)
+        {
+            if (!ModelState.IsValid) return View(activity);
+
+            _activityRepository.Save(activity);
+            return RedirectToAction("EditActivities");
+        }
     }
 }

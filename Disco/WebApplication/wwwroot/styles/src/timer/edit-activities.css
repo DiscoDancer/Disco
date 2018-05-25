@@ -1,6 +1,7 @@
 ﻿.timer-edit-activities table {
     border-collapse: collapse;
     width: 100%;
+    display: table;
 }
 
 .timer-edit-activities table td,
