@@ -1,10 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication.Models.Timer;
 
 namespace WebApplication.Controllers
 {
     public class TimerController : Controller
     {
-        public ViewResult Index() => View();
+        private readonly IActivityRepository _activityRepository;
+
+        public TimerController(IActivityRepository activityRepository)
+        {
+            _activityRepository = activityRepository;
+        }
+
+        public ViewResult Index()
+        {
+            var activities = _activityRepository.TimerActivities;
+
+            return View(activities);
+        }
 
         public ViewResult Settings() => View();
 
