@@ -13,6 +13,11 @@
 
     @await Component.InvokeAsync("Header")
 
+    @if (TempData["message"] != null)
+    {
+        <div class="layout-message">@TempData["message"]</div>
+    }
+
     <main>
         @RenderBody()
     </main>

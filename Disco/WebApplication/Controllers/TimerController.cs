@@ -52,12 +52,18 @@ namespace WebApplication.Controllers
             if (!ModelState.IsValid) return View(activity);
 
             _activityRepository.Save(activity);
+            TempData["message"] = $"Activity {activity.Name} has been saved";
             return RedirectToAction("EditActivities");
         }
 
         public IActionResult DeleteActivity(int activityId)
         {
             var deletedActivity = _activityRepository.Delete(activityId);
+
+            if (deletedActivity != null)
+            {
+                TempData["message"] = $"Activity {deletedActivity.Name} was deleted";
+            }
 
             return RedirectToAction("EditActivities");
         }

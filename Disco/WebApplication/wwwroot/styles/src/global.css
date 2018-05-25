@@ -6,3 +6,11 @@ body {
     position: relative;
     min-height: 100%;
 }
+
+.layout-message {
+    margin: 0 auto;
+    background-color: lightblue;
+    padding: 20px 100px;
+    text-align: center;
+    font-size: 27px;
+}
