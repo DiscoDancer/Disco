@@ -339,3 +339,6 @@ Disco/Publish Profiles/*
 
 # Temporary files
 Disco/WebApplication/tmp.txt
+
+# Data Sensitive files
+Disco/WebApplication/appsettings.json

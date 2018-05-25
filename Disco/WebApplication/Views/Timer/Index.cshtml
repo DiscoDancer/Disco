@@ -1,4 +1,6 @@
-﻿<div class="timer-frontpage timer-container">
+﻿@model IQueryable<WebApplication.Models.Timer.TimerActivity>
+
+<div class="timer-frontpage timer-container">
 
     <img class="timer-logo" src="/images/timer/tomato-icon.png" alt="tomato icon" />
 
@@ -13,6 +15,12 @@
             <option>
                 No Activity Selected
             </option>
+            @foreach (var activity in Model)
+            {
+                <option data-id="@activity.ID">
+                    @activity.Name
+                </option>
+            }
         </select>
     </div>
 
