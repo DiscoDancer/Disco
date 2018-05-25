@@ -1,45 +1,51 @@
-﻿<header>
-    <h3>
+﻿@model WebApplication.Models.ViewModels.Header.HeaderViewModel
+
+<header>
+    <h3 class="@(Model.CurrentControllerName == "Resume" ? "active" : string.Empty)">
         <a asp-controller="Resume" asp-action="Index">
             Disco
         </a>
     </h3>
 
     <ul>
-        <li>
+        <li class="@(Model.CurrentControllerName == "Timer" ? "active" : string.Empty)">
             <a asp-controller="Timer" asp-action="Index">
                 Timer
             </a>
         </li>
-        <li>
+        <li class="@(Model.CurrentControllerName == "Achievement" ? "active" : string.Empty)">
             <a asp-controller="Achievement" asp-action="Index">
                 Achievements
             </a>
         </li>
-        <li>
+        <li class="@(Model.CurrentControllerName == "Calendar" ? "active" : string.Empty)">
             <a asp-controller="Calendar" asp-action="Index">
                 Calendar
             </a>
         </li>
-        <li>
+        <li class="@(Model.CurrentControllerName == "Finance" ? "active" : string.Empty)">
             <a asp-controller="Finance" asp-action="Index">
                 Finances
             </a>
         </li>
-        <li>
+        <li class="@(Model.CurrentControllerName == "KnowledgeBase" ? "active" : string.Empty)">
             <a asp-controller="KnowledgeBase" asp-action="Index">
                 Knowledge Base
             </a>
         </li>
-        <li>
+        <li class="@(Model.CurrentControllerName == "Reform" ? "active" : string.Empty)">
             <a asp-controller="Reform" asp-action="Index">
                 Reforms
             </a>
         </li>
-        <li>
+        <li class="@(Model.CurrentControllerName == "TaskManagement" ? "active" : string.Empty)">
             <a asp-controller="TaskManagement" asp-action="Index">
                 Task Management
             </a>
         </li>
     </ul>
 </header>
+
+<div>
+    @ViewBag.SelectedController
+</div>
