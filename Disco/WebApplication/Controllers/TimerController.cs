@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models.Timer;
+using WebApplication.Models.ViewModels.Timer;
 
 namespace WebApplication.Controllers
 {
@@ -36,14 +37,29 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
-        public ViewResult CreateActivity() => View("EditActivity", new TimerActivity());
+        public ViewResult CreateActivity()
+        {
+            var model = new CaptionActivity
+            {
+                Caption = "Create Activity",
+                Activity = new TimerActivity()
+            };
+
+            return View("EditActivity", model);
+        } 
 
 
         [HttpGet]
         public ViewResult EditActivity(int activityId)
         {
-            return View(_activityRepository.TimerActivities
-                .FirstOrDefault(x => x.ID == activityId));
+            var model = new CaptionActivity
+            {
+                Caption = "Edit Activity",
+                Activity = _activityRepository.TimerActivities
+                    .FirstOrDefault(x => x.ID == activityId)
+            };
+
+            return View(model);
         }
 
         [HttpPost]

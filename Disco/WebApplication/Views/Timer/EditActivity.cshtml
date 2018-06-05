@@ -1,4 +1,4 @@
-﻿@model WebApplication.Models.Timer.TimerActivity
+﻿@model WebApplication.Models.ViewModels.Timer.CaptionActivity
 
 <div class="timer-edit-activity timer-container">
 
@@ -9,19 +9,19 @@
             Tomato Timer
         </h1>
         <h2>
-            Edit Activity
+            @Model.Caption
         </h2>
     </div>
 
     <form asp-action="EditActivity" method="post" class="timer-block">
-        <input type="hidden" asp-for="ID" />
+        <input type="hidden" asp-for="Activity.ID" />
 
         <fieldset>
-            <label asp-for="Name">
+            <label asp-for="Activity.Name">
                 Name
             </label>
-            <div><span asp-validation-for="Name" class="text-danger"></span></div>
-            <input type="text" asp-for="Name" class="name-input" />
+            <div><span asp-validation-for="Activity.Name" class="text-danger"></span></div>
+            <input type="text" asp-for="Activity.Name" class="name-input" />
         </fieldset>
         <fieldset class="buttons-row timer-block">
             <input type="submit" class="control-button save-button" value="Save"/>
