@@ -31,12 +31,9 @@
                         @activity.Name
                     </td>
                     <td>
-                        <a asp-action="EditActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
-                            <span class="edit-icon">!</span>
-                        </a>
-                        <a asp-action="DeleteActivity" asp-route-activityId="@activity.ID" class="anchor-no-visually-effects">
-                            <span class="delete-icon">X</span>
-                        </a> 
+                        <activity-edit-delete activity-id="@activity.ID">
+
+                        </activity-edit-delete>
                     </td>
                 </tr>
             }
