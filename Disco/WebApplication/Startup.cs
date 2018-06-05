@@ -39,7 +39,14 @@ namespace WebApplication
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: null,
+                    template: "Timer/EditActivity{activityId:int}",
+                    defaults: new { controller = "Timer", action = "EditActivity" }
+                );
+
                 routes.MapRoute(name: null, template: "{controller}/{action}");
+
                 routes.MapRoute(
                     name: "default_route",
                     template: "{controller=Resume}/{action=Index}");
