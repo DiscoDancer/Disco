@@ -4,9 +4,17 @@ body header {
     padding: 0 8px;
 }
 
-header li, header ul, header h3 {
+header li,
+header ul,
+header h3 {
     display: inline-block;
 }
+
+    header li.active,
+    header ul.active,
+    header h3.active {
+        background-color: burlywood;
+    }
 
 header h3 {
     font-size: 30px;

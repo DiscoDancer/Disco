@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication.Models.ViewModels.Header;
 
 namespace WebApplication.Components
 {
@@ -6,7 +7,12 @@ namespace WebApplication.Components
     {
         public IViewComponentResult Invoke()
         {
-            return View();
+            var model = new HeaderViewModel
+            {
+                CurrentControllerName = RouteData?.Values["controller"] as string ?? string.Empty
+            };
+
+            return View(model);
         }
     }
 }
