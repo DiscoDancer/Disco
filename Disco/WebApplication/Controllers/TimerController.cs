@@ -8,10 +8,13 @@ namespace WebApplication.Controllers
     public class TimerController : Controller
     {
         private readonly IRepository<TimerActivity> _activityRepository;
+        private readonly IRepository<TimerSound> _soundsRepository;
 
-        public TimerController(IRepository<TimerActivity> activityRepository)
+        public TimerController(IRepository<TimerActivity> activityRepository,
+            IRepository<TimerSound> soundsRepository)
         {
             _activityRepository = activityRepository;
+            _soundsRepository = soundsRepository;
         }
 
         public ViewResult Index()
@@ -24,6 +27,18 @@ namespace WebApplication.Controllers
         public ViewResult Settings() => View();
 
         public ViewResult History() => View();
+
+        #region Timer Sounds
+
+        [HttpGet]
+        public ViewResult EditSounds()
+        {
+            var sounds = _soundsRepository.GetAll();
+
+            return View(sounds);
+        }
+
+        #endregion
 
 
         #region Timer Activities
@@ -46,7 +61,7 @@ namespace WebApplication.Controllers
             };
 
             return View("EditActivity", model);
-        } 
+        }
 
 
         [HttpGet]
