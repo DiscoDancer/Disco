@@ -2,13 +2,14 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using UnitTests.Services;
 using WebApplication.Controllers;
 using WebApplication.Models.Timer;
 using Xunit;
 
-namespace UnitTests
+namespace UnitTests.Timer
 {
-    public class TimerControllerTests
+    public class TimerActivityTests
     {
         [Fact]
         public void Index_Contains_All_Activities()
@@ -28,7 +29,7 @@ namespace UnitTests
 
             // Action
             var result
-                = GetViewModel<IEnumerable<TimerActivity>>(target.Index())?.ToArray();
+                = MVCHelper.GetViewModel<IEnumerable<TimerActivity>>(target.Index())?.ToArray();
 
             // Assert
             Assert.NotNull(result);
@@ -56,7 +57,7 @@ namespace UnitTests
 
             // Action
             var result
-                = GetViewModel<IEnumerable<TimerActivity>>(target.EditActivities())?.ToArray();
+                = MVCHelper.GetViewModel<IEnumerable<TimerActivity>>(target.EditActivities())?.ToArray();
 
             // Assert
             Assert.NotNull(result);
@@ -83,9 +84,14 @@ namespace UnitTests
             var target = new TimerController(mock.Object);
 
             // Act
-            var p1 = GetViewModel<TimerActivity>(target.EditActivity(1));
-            var p2 = GetViewModel<TimerActivity>(target.EditActivity(2));
-            var p3 = GetViewModel<TimerActivity>(target.EditActivity(3));
+            var p1 = MVCHelper.GetViewModel<TimerActivity>(target.EditActivity(1));
+            var p2 = MVCHelper.GetViewModel<TimerActivity>(target.EditActivity(2));
+            var p3 = MVCHelper.GetViewModel<TimerActivity>(target.EditActivity(3));
+
+            // Assert
+            Assert.Equal(1, p1.ID);
+            Assert.Equal(2, p2.ID);
+            Assert.Equal(3, p3.ID);
         }
 
         [Fact]
@@ -106,7 +112,7 @@ namespace UnitTests
 
 
             // Act
-            var result = GetViewModel<TimerActivity>(target.EditActivity(4));
+            var result = MVCHelper.GetViewModel<TimerActivity>(target.EditActivity(4));
 
             // Assert
             Assert.Null(result);
@@ -204,11 +210,6 @@ namespace UnitTests
             // called with the correct Product
             mock.Verify(m => m.Delete(activity.ID));
             Assert.Equal(2, mock.Object.GetAll().Count());
-        }
-
-        private static T GetViewModel<T>(IActionResult result) where T : class
-        {
-            return (result as ViewResult)?.ViewData.Model as T;
         }
     }
 }
