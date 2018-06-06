@@ -11,5 +11,6 @@ namespace WebApplication.Models
         }
 
         public DbSet<TimerActivity> TimerActivities { get; set; }
+        public DbSet<TimerSound> TimerSounds { get; set; }
     }
 }
