@@ -2,7 +2,7 @@
 
 namespace WebApplication.Models.Timer
 {
-    public class EFActivityRepository: IActivityRepository
+    public class EFActivityRepository: IRepository<TimerActivity>
     {
         private readonly ApplicationDbContext _context;
 
@@ -11,7 +11,7 @@ namespace WebApplication.Models.Timer
             _context = ctx;
         }
 
-        public IQueryable<TimerActivity> TimerActivities => 
+        public IQueryable<TimerActivity> GetAll () => 
             _context.TimerActivities;
 
         public void Save(TimerActivity activity)

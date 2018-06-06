@@ -7,16 +7,16 @@ namespace WebApplication.Controllers
 {
     public class TimerController : Controller
     {
-        private readonly IActivityRepository _activityRepository;
+        private readonly IRepository<TimerActivity> _activityRepository;
 
-        public TimerController(IActivityRepository activityRepository)
+        public TimerController(IRepository<TimerActivity> activityRepository)
         {
             _activityRepository = activityRepository;
         }
 
         public ViewResult Index()
         {
-            var activities = _activityRepository.TimerActivities;
+            var activities = _activityRepository.GetAll();
 
             return View(activities);
         }
@@ -31,7 +31,7 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ViewResult EditActivities()
         {
-            var activities = _activityRepository.TimerActivities;
+            var activities = _activityRepository.GetAll();
 
             return View(activities);
         }
@@ -55,7 +55,7 @@ namespace WebApplication.Controllers
             var model = new CaptionActivity
             {
                 Caption = "Edit Activity",
-                Activity = _activityRepository.TimerActivities
+                Activity = _activityRepository.GetAll()
                     .FirstOrDefault(x => x.ID == activityId)
             };
 
@@ -65,10 +65,21 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult EditActivity(TimerActivity activity)
         {
-            if (!ModelState.IsValid) return View(activity);
+            var model = new CaptionActivity
+            {
+                Caption = "Edit Activity",
+                Activity = activity
+            };
+
+            if (!ModelState.IsValid) return View(model);
 
             _activityRepository.Save(activity);
-            TempData["message"] = $"Activity {activity.Name} has been saved";
+
+            if (TempData != null)
+            {
+                TempData["message"] = $"Activity {activity.Name} has been saved";
+            }
+
             return RedirectToAction("EditActivities");
         }
 

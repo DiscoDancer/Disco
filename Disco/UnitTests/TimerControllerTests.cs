@@ -14,8 +14,8 @@ namespace UnitTests
         public void Index_Contains_All_Activities()
         {
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
-            mock.Setup(m => m.TimerActivities).Returns(new[]
+            var mock = new Mock<IRepository<TimerActivity>>();
+            mock.Setup(m => m.GetAll()).Returns(new[]
             {
                 new TimerActivity {Name = "Apple"},
                 new TimerActivity {Name = "Orange"},
@@ -42,8 +42,8 @@ namespace UnitTests
         public void EditActivities_Contains_All_Activities()
         {
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
-            mock.Setup(m => m.TimerActivities).Returns(new[]
+            var mock = new Mock<IRepository<TimerActivity>>();
+            mock.Setup(m => m.GetAll()).Returns(new[]
             {
                 new TimerActivity {Name = "Apple"},
                 new TimerActivity {Name = "Orange"},
@@ -70,8 +70,8 @@ namespace UnitTests
         public void Can_Edit_Activity()
         {
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
-            mock.Setup(m => m.TimerActivities).Returns(new[]
+            var mock = new Mock<IRepository<TimerActivity>>();
+            mock.Setup(m => m.GetAll()).Returns(new[]
             {
                 new TimerActivity {Name = "Apple", ID = 1},
                 new TimerActivity {Name = "Orange", ID = 2},
@@ -92,8 +92,8 @@ namespace UnitTests
         public void Cannot_Edit_Nonexistent_Activity()
         {
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
-            mock.Setup(m => m.TimerActivities).Returns(new[]
+            var mock = new Mock<IRepository<TimerActivity>>();
+            mock.Setup(m => m.GetAll()).Returns(new[]
             {
                 new TimerActivity {Name = "Apple", ID = 1},
                 new TimerActivity {Name = "Orange", ID = 2},
@@ -116,7 +116,7 @@ namespace UnitTests
         public void Can_Save_Valid_Activity()
         {
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
+            var mock = new Mock<IRepository<TimerActivity>>();
 
             // Arrange - create a controller
             var target = new TimerController(mock.Object);
@@ -137,7 +137,7 @@ namespace UnitTests
         public void Cannot_Save_Invalid_Activity()
         {
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
+            var mock = new Mock<IRepository<TimerActivity>>();
 
             // Arrange - create a controller
             var target = new TimerController(mock.Object);
@@ -163,8 +163,8 @@ namespace UnitTests
             var activity = new TimerActivity { Name = "Potato", ID = 2};
 
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
-            mock.Setup(m => m.TimerActivities).Returns(new [] {
+            var mock = new Mock<IRepository<TimerActivity>>();
+            mock.Setup(m => m.GetAll()).Returns(new [] {
                 new TimerActivity {ID = 1, Name = "P1"},
                 activity,
                 new TimerActivity {ID = 3, Name = "P3"},
@@ -188,8 +188,8 @@ namespace UnitTests
             var activity = new TimerActivity { Name = "Potato", ID = 2 };
 
             // Arrange - create the mock repository
-            var mock = new Mock<IActivityRepository>();
-            mock.Setup(m => m.TimerActivities).Returns(new[] {
+            var mock = new Mock<IRepository<TimerActivity>>();
+            mock.Setup(m => m.GetAll()).Returns(new[] {
                 new TimerActivity {ID = 1, Name = "P1"},
                 new TimerActivity {ID = 3, Name = "P3"},
             }.AsQueryable());
@@ -203,7 +203,7 @@ namespace UnitTests
             // Assert - ensure that the repository delete method was
             // called with the correct Product
             mock.Verify(m => m.Delete(activity.ID));
-            Assert.Equal(2, mock.Object.TimerActivities.Count());
+            Assert.Equal(2, mock.Object.GetAll().Count());
         }
 
         private static T GetViewModel<T>(IActionResult result) where T : class

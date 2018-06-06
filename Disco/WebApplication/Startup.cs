@@ -23,7 +23,7 @@ namespace WebApplication
                 options.UseSqlServer(
                     Configuration["Data:BusinessLogic:ConnectionString"]));
 
-            services.AddTransient<IActivityRepository, EFActivityRepository>();
+            services.AddTransient<IRepository<TimerActivity>, EFActivityRepository>();
 
             services.AddMvc();
             services.AddSession();
