@@ -1,0 +1,48 @@
+﻿.timer-edit-sound .name-fieldset label {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    padding-right: 200px;
+}
+
+.timer-edit-sound .name-input {
+    display: block;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.file-fieldset {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
+}
+
+.timer-edit-sound .buttons-row {
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timer-edit-sound .control-button {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.timer-edit-sound .save-button {
+    background-color: lightgreen;
+}
+
+.timer-edit-sound .cancel-button {
+    background-color: lightcoral;
+}
+
+.timer-edit-sound .text-danger {
+    color: red;
+}
+
+.timer-edit-sound .field-validation-error {
+    display: block;
+    text-align: center;
+}

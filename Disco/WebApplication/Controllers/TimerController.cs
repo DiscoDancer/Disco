@@ -41,7 +41,20 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ViewResult EditSound(int soundId)
         {
-            return View();
+            var model = new CaptionSound
+            {
+                Caption = "Edit Sound",
+                Sound = _soundsRepository.GetAll()
+                    .FirstOrDefault(x => x.ID == soundId)
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult EditSound(TimerSound sound)
+        {
+            return RedirectToAction("EditSounds");
         }
 
         [HttpGet]
