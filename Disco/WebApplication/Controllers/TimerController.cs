@@ -38,6 +38,23 @@ namespace WebApplication.Controllers
             return View(sounds);
         }
 
+        [HttpGet]
+        public ViewResult EditSound(int soundId)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult CreateSound()
+        {
+            return View("EditSound");
+        }
+
+        public IActionResult DeleteSound(int soundId)
+        {
+            return RedirectToAction("EditSounds");
+        }
+
         #endregion
 
 

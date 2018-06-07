@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace WebApplication.TagHelpers
 {
-    public class ActivityEditDeleteTagHelper : EditDeleteTagHelper
+    public class SoundEditDeleteTagHelper : EditDeleteTagHelper
     {
         public override string EditUrl
         {
             get
             {
                 var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("EditActivity",
-                        new
-                        {
-                            activityId = ActivityId
-                        });
+                return urlHelper.Action("EditSound",
+                    new
+                    {
+                        soundId = SoundId
+                    });
             }
         }
 
@@ -26,27 +26,25 @@ namespace WebApplication.TagHelpers
             get
             {
                 var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("DeleteActivity",
+                return urlHelper.Action("DeleteSound",
                     new
                     {
-                        activityId = ActivityId
+                        soundId = SoundId
                     });
             }
         }
 
-        [ViewContext]
-        [HtmlAttributeNotBound]
+        [ViewContext] [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
 
-        public int ActivityId { get; set; }
+        public int SoundId { get; set; }
 
 
         private readonly IUrlHelperFactory _urlHelperFactory;
 
-        public ActivityEditDeleteTagHelper(IUrlHelperFactory helperFactory)
+        public SoundEditDeleteTagHelper(IUrlHelperFactory helperFactory)
         {
             _urlHelperFactory = helperFactory;
         }
-
     }
 }
