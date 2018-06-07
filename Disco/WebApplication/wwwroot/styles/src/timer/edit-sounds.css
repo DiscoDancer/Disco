@@ -49,6 +49,17 @@
     width: 25px;
 }
 
+.timer-edit-sounds .play-icon {
+    background-color: blue;
+    display: inline-block;
+    border: solid black 2px;
+    color: white;
+    padding: 3px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
 .timer-edit-sounds .add-sound-button {
     font-size: 20px;
     padding: 5px;
