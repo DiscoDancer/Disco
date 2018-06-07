@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models.Timer;
@@ -47,18 +49,62 @@ namespace WebApplication.Controllers
             return View(new EditSoundViewModel());
         }
 
-        [HttpPost]
-        public IActionResult EditSound(EditSoundViewModel model)
+        public IActionResult GetSoundById(int id)
         {
+            var sound = _soundsRepository.GetAll().FirstOrDefault(x => x.ID == id);
+
+            if (sound?.Data == null || sound.Data.Length == 0)
+            {
+                return NotFound();
+            }
+
+            var memory = new MemoryStream(sound.Data)
+            {
+                Position = 0
+            };
+
+            var response = File(memory, "application/octet-stream", "file.mp3"); // FileStreamResult
+            return response;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditSound(EditSoundViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.SubHeader = "Edit Sound";
+
+                return View(model);
+            }
+
+            var sound = new TimerSound
+            {
+                Name = model.Name,
+                ID = model.ID
+            };
+
+            using (var memoryStream = new MemoryStream())
+            {
+                await model.File.CopyToAsync(memoryStream);
+                sound.Data = memoryStream.ToArray();
+            }
+
+            _soundsRepository.Save(sound);
+
+            if (TempData != null)
+            {
+                TempData["message"] = $"Sound {sound.Name} has been uploaded to server!";
+            }
+
             return RedirectToAction("EditSounds");
         }
 
         [HttpGet]
         public ViewResult CreateSound()
         {
-            ViewBag.SubHeader = "Add Sound";
+            ViewBag.SubHeader = "Upload New Sound";
 
-            return View("EditSound");
+            return View("EditSound", new EditSoundViewModel());
         }
 
         public IActionResult DeleteSound(int soundId)

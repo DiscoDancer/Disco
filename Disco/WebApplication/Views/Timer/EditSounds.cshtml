@@ -27,51 +27,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <play-sound></play-sound>
-                </td>
-                <td>
-                    A
-                </td>
-                <td>
-                    <sound-edit-delete sound-id="0">
+            @foreach (var sound in Model)
+            {
+                <tr>
+                    <td>
+                        <play-sound></play-sound>
+                    </td>
+                    <td>
+                        @sound.Name
+                    </td>
+                    <td>
+                        <sound-edit-delete sound-id="@sound.ID">
 
-                    </sound-edit-delete>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <play-sound></play-sound>
-                </td>
-                <td>
-                    A
-                </td>
-                <td>
-                    <sound-edit-delete sound-id="0">
-
-                    </sound-edit-delete>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <play-sound></play-sound>
-                </td>
-                <td>
-                    A
-                </td>
-                <td>
-                    <sound-edit-delete sound-id="0">
-
-                    </sound-edit-delete>
-                </td>
-            </tr>
+                        </sound-edit-delete>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 
-    <a class="anchor-no-visually-effects">
+    <a asp-action="CreateSound" class="anchor-no-visually-effects">
         <button class="add-sound-button">
-            Create
+            Upload New
         </button>
     </a>
 
