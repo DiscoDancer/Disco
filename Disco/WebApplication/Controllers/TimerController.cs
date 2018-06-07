@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models.Timer;
 using WebApplication.Models.ViewModels.Timer;
@@ -51,8 +52,13 @@ namespace WebApplication.Controllers
             return View(model);
         }
 
+        public class ExtentedTimeSound : TimerSound
+        {
+            public IFormFile File { get; set; }
+        }
+
         [HttpPost]
-        public IActionResult EditSound(TimerSound sound)
+        public IActionResult EditSound(ExtentedTimeSound sound)
         {
             return RedirectToAction("EditSounds");
         }
