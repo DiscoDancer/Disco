@@ -24,6 +24,7 @@ namespace WebApplication
                     Configuration["Data:BusinessLogic:ConnectionString"]));
 
             services.AddTransient<IRepository<TimerActivity>, EFActivityRepository>();
+            services.AddTransient<IRepository<TimerSound>, EFSoundRepository>();
 
             services.AddMvc();
             services.AddSession();

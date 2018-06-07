@@ -7,9 +7,9 @@
     font-size: 20px;
 }
 
-.timer-settings form .timer-block {
-    margin-top: 30px;
-}
+    .timer-settings form .timer-block {
+        margin-top: 30px;
+    }
 
 .timer-settings label {
     text-align: center;
@@ -30,7 +30,15 @@
     width: 250px;
 }
 
-.timer-settings .edit-activities-button {
+.timer-settings .edit-buttons a {
+    display: block;
+}
+
+.timer-settings .edit-buttons a:nth-child(even) {
+    padding-top: 10px;
+}
+
+.timer-settings .edit-button {
     border-color: black;
     border-radius: 5px;
     background-color: lightgray;

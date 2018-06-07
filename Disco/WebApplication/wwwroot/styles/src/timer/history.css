@@ -1,6 +1,7 @@
 ﻿.timer-history table {
     border-collapse: collapse;
     width: 100%;
+    display: table;
 }
 
     .timer-history table td,

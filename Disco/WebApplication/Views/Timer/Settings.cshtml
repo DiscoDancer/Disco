@@ -25,10 +25,18 @@
             </select>
         </fieldset>
     </form>
+    
+    <div class="timer-block edit-buttons">
+        <a asp-controller="Timer" asp-action="EditSounds" class="anchor-no-visually-effects">
+            <button class="edit-button">
+                Edit Sounds
+            </button>
+        </a>
+        <a asp-controller="Timer" asp-action="EditActivities" class="anchor-no-visually-effects">
+            <button class="edit-button">
+                Edit Activities
+            </button>
+        </a>
+    </div>
 
-    <a asp-controller="Timer" asp-action="EditActivities" class="anchor-no-visually-effects timer-block">
-        <button class="edit-activities-button">
-            Edit Activities
-        </button>
-    </a>
 </div>
