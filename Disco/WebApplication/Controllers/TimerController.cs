@@ -42,23 +42,13 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ViewResult EditSound(int soundId)
         {
-            var model = new CaptionSound
-            {
-                Caption = "Edit Sound",
-                Sound = _soundsRepository.GetAll()
-                    .FirstOrDefault(x => x.ID == soundId)
-            };
+            ViewBag.SubHeader = "Edit Sound";
 
-            return View(model);
-        }
-
-        public class ExtentedTimeSound : TimerSound
-        {
-            public IFormFile File { get; set; }
+            return View(new EditSoundViewModel());
         }
 
         [HttpPost]
-        public IActionResult EditSound(ExtentedTimeSound sound)
+        public IActionResult EditSound(EditSoundViewModel model)
         {
             return RedirectToAction("EditSounds");
         }
@@ -66,6 +56,8 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ViewResult CreateSound()
         {
+            ViewBag.SubHeader = "Add Sound";
+
             return View("EditSound");
         }
 
