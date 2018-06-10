@@ -60,6 +60,10 @@
     width: 25px;
 }
 
+.timer-edit-sounds audio {
+    visibility: hidden;
+}
+
 .timer-edit-sounds .add-sound-button {
     font-size: 20px;
     padding: 5px;

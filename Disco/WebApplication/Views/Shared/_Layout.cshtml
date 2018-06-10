@@ -7,7 +7,7 @@
     <link rel="stylesheet" asp-href-include="/styles/dist/bundle.css" asp-append-version="true" />
     <link rel="icon" href="/images/disco ball.ico">
 
-    <script asp-src-include="/scripts/dist/bundle.js" asp-append-version="true"></script>
+
 </head>
 <body>
 
@@ -23,6 +23,8 @@
     </main>
 
     @await Component.InvokeAsync("Footer")
+
+    <script asp-src-include="/scripts/dist/bundle.js" asp-append-version="true"></script>
 
 </body>
 </html>
