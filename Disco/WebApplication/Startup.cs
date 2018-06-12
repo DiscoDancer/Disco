@@ -46,6 +46,12 @@ namespace WebApplication
                     defaults: new { controller = "Timer", action = "EditActivity" }
                 );
 
+                routes.MapRoute(
+                    name: null,
+                    template: "Timer/EditSound{soundId:int}",
+                    defaults: new { controller = "Timer", action = "EditSound" }
+                );
+
                 routes.MapRoute(name: null, template: "{controller}/{action}");
 
                 routes.MapRoute(
