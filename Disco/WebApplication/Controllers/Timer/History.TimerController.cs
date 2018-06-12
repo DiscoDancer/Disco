@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication.Models.Timer;
 
 namespace WebApplication.Controllers.Timer
 {
     public partial class TimerController : Controller
     {
-        public ViewResult History() 
+        public ViewResult History()
             => View(_logsRepository.GetAll());
 
         public IActionResult DeleteLog(int id)
@@ -20,9 +22,27 @@ namespace WebApplication.Controllers.Timer
             return RedirectToAction("History");
         }
 
+        #region API
+
+        [HttpPost]
         public IActionResult AddLog(int activityId)
         {
-            throw new NotImplementedException();
+            var activity = _activityRepository
+                .GetAll()
+                .FirstOrDefault(x => x.ID == activityId);
+
+            if (activity == null) return NotFound();
+
+            _logsRepository.Save(new TimerLog
+            {
+                Activity = activity,
+                Date = DateTime.Now
+            });
+
+            return Ok();
         }
+
+        #endregion
+
     }
 }

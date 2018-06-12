@@ -9,7 +9,7 @@ using Xunit;
 
 namespace UnitTests.Timer
 {
-    public class TimerLogTests
+    public class TimerHistoryTests
     {
         [Fact]
         public void History_Contains_All_Logs()
