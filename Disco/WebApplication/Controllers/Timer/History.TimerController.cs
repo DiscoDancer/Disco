@@ -10,7 +10,14 @@ namespace WebApplication.Controllers.Timer
 
         public IActionResult DeleteLog(int id)
         {
-            throw new NotImplementedException();
+            var deletedLog = _logsRepository.Delete(id);
+
+            if (deletedLog != null)
+            {
+                TempData["message"] = $"Activity #{id} was deleted";
+            }
+
+            return RedirectToAction("History");
         }
 
         public IActionResult AddLog(int activityId)

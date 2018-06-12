@@ -32,4 +32,9 @@
     border: solid black 2px;
     color: white;
     padding: 3px;
+    cursor: pointer;
+}
+
+.timer-history .edit-icon {
+    display: none;
 }

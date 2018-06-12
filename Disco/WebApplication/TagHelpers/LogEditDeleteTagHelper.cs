@@ -6,43 +6,33 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace WebApplication.TagHelpers
 {
-    public class SoundEditDeleteTagHelper : EditDeleteTagHelper
+    public class LogEditDeleteTagHelper: EditDeleteTagHelper
     {
-        public override string EditUrl
-        {
-            get
-            {
-                var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("EditSound", "Timer",
-                    new
-                    {
-                        soundId = SoundId
-                    });
-            }
-        }
+        public override string EditUrl => string.Empty;
 
         public override string DeleteUrl
         {
             get
             {
                 var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("DeleteSound", "Timer",
+                return urlHelper.Action("DeleteLog", "Timer",
                     new
                     {
-                        soundId = SoundId
+                        id = LogId
                     });
             }
         }
 
-        [ViewContext] [HtmlAttributeNotBound]
+        [ViewContext]
+        [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
 
-        public int SoundId { get; set; }
+        public int LogId { get; set; }
 
 
         private readonly IUrlHelperFactory _urlHelperFactory;
 
-        public SoundEditDeleteTagHelper(IUrlHelperFactory helperFactory)
+        public LogEditDeleteTagHelper(IUrlHelperFactory helperFactory)
         {
             _urlHelperFactory = helperFactory;
         }

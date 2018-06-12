@@ -58,7 +58,7 @@ namespace WebApplication.TagHelpers
             get
             {
                 var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("GetSoundById",
+                return urlHelper.Action("GetSoundById", "Timer",
                     new
                     {
                         id = SoundId

@@ -157,7 +157,7 @@ namespace UnitTests.Timer
         }
 
         [Fact]
-        public void Can_Delete_Valid_Sound()
+        public void Can_Delete_Existing_Sound()
         {
             // Arrange - creating a sound
             var sound = new TimerSound { Name = "Apple", Data = new byte[] { 0x01 }, ID = 1 };
@@ -179,10 +179,6 @@ namespace UnitTests.Timer
             // Assert - ensure that the repository delete method was
             // called with the correct Product
             mockRepository.Verify(m => m.Delete(sound.ID));
-
-            // Assert - check the method result type
-            Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("EditSounds", (result as RedirectToActionResult)?.ActionName);
         }
 
         [Fact]
@@ -207,19 +203,7 @@ namespace UnitTests.Timer
             // Assert - ensure that the repository delete method was
             // called with the correct Product
             mockRepository.Verify(m => m.Delete(sound.ID));
-
-            // Assert - check the method result type
-            Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("EditSounds", (result as RedirectToActionResult)?.ActionName);
-
-            // Assert - ensure that the repository delete method was
-            // called with the correct Product
-            mockRepository.Verify(m => m.Delete(sound.ID));
             Assert.Equal(2, mockRepository.Object.GetAll().Count());
-
-            // Assert - check the method result type
-            Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("EditSounds", (result as RedirectToActionResult)?.ActionName);
         }
 
         [Fact]

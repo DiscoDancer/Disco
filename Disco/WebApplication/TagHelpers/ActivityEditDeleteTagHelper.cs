@@ -13,7 +13,7 @@ namespace WebApplication.TagHelpers
             get
             {
                 var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("EditActivity",
+                return urlHelper.Action("EditActivity", "Timer",
                         new
                         {
                             activityId = ActivityId
@@ -26,7 +26,7 @@ namespace WebApplication.TagHelpers
             get
             {
                 var urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-                return urlHelper.Action("DeleteActivity",
+                return urlHelper.Action("DeleteActivity", "Timer",
                     new
                     {
                         activityId = ActivityId
