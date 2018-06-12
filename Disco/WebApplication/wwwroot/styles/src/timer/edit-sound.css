@@ -34,6 +34,7 @@
     height: 40px;
     border-radius: 5px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .timer-edit-sound .save-button {

@@ -36,6 +36,7 @@
     display: inline-block;
     height: 25px;
     width: 25px;
+    cursor: pointer;
 }
 
 .timer-edit-sounds .edit-icon {
@@ -47,6 +48,7 @@
     display: inline-block;
     height: 25px;
     width: 25px;
+    cursor: pointer;
 }
 
 .timer-edit-sounds .play-icon {
@@ -58,6 +60,7 @@
     display: inline-block;
     height: 25px;
     width: 25px;
+    cursor: pointer;
 }
 
 .timer-edit-sounds audio {
@@ -74,4 +77,5 @@
     color: white;
     border-radius: 5px;
     border: 3px black solid;
+    cursor: pointer;
 }
