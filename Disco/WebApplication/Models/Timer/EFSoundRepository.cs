@@ -30,7 +30,13 @@ namespace WebApplication.Models.Timer
                 if (dbEntry != null)
                 {
                     dbEntry.Name = instance.Name;
-                    dbEntry.Data = instance.Data;
+
+                    // non selected file in UI form should not be ovewritten
+                    if (instance.Data != null)
+                    {
+                        dbEntry.Data = instance.Data;
+                    }
+                    
                 }
             }
 

@@ -71,10 +71,13 @@ namespace WebApplication.Controllers.Timer
                 ID = model.ID
             };
 
-            using (var memoryStream = new MemoryStream())
+            if (model.File != null)
             {
-                await model.File.CopyToAsync(memoryStream);
-                sound.Data = memoryStream.ToArray();
+                using (var memoryStream = new MemoryStream())
+                {
+                    await model.File.CopyToAsync(memoryStream);
+                    sound.Data = memoryStream.ToArray();
+                }
             }
 
             _soundsRepository.Save(sound);
