@@ -7,12 +7,14 @@ namespace WebApplication.Controllers.Timer
     {
         private readonly IRepository<TimerActivity> _activityRepository;
         private readonly IRepository<TimerSound> _soundsRepository;
+        private readonly IRepository<TimerLog> _logsRepository;
 
         public TimerController(IRepository<TimerActivity> activityRepository,
-            IRepository<TimerSound> soundsRepository)
+            IRepository<TimerSound> soundsRepository, IRepository<TimerLog> logsRepository)
         {
             _activityRepository = activityRepository;
             _soundsRepository = soundsRepository;
+            _logsRepository = logsRepository;
         }
 
         public ViewResult Index()
@@ -24,6 +26,5 @@ namespace WebApplication.Controllers.Timer
 
         public ViewResult Settings() => View();
 
-        public ViewResult History() => View();
     }
 }

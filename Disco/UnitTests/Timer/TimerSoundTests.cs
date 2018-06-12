@@ -30,7 +30,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(null, mock.Object);
+            var target = new TimerController(null, mock.Object, null);
 
             // Action
             var result
@@ -58,7 +58,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(null, mock.Object);
+            var target = new TimerController(null, mock.Object, null);
 
             // Act
             var p1 = MVCHelper.GetViewModel<EditSoundViewModel>(target.EditSound(1));
@@ -85,7 +85,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(null, mock.Object);
+            var target = new TimerController(null, mock.Object, null);
 
 
             // Act
@@ -102,7 +102,7 @@ namespace UnitTests.Timer
             var mockRepository = new Mock<IRepository<TimerSound>>();
 
             // Arrange - create a controller
-            var targetController = new TimerController(null, mockRepository.Object);
+            var targetController = new TimerController(null, mockRepository.Object, null);
 
             var mockFile = new Mock<IFormFile>();
             mockFile.Setup(x => x.CopyToAsync(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
@@ -132,7 +132,7 @@ namespace UnitTests.Timer
             var mockRepository = new Mock<IRepository<TimerSound>>();
 
             // Arrange - create a controller
-            var targetController = new TimerController(null, mockRepository.Object);
+            var targetController = new TimerController(null, mockRepository.Object, null);
 
             var mockFile = new Mock<IFormFile>();
             mockFile.Setup(x => x.CopyToAsync(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
@@ -171,7 +171,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(null, mockRepository.Object);
+            var target = new TimerController(null, mockRepository.Object, null);
 
             // Act - delete the product
             var result = target.DeleteSound(sound.ID);
@@ -199,7 +199,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(null, mockRepository.Object);
+            var target = new TimerController(null, mockRepository.Object, null);
 
             // Act - delete the product
             var result = target.DeleteSound(sound.ID);
@@ -237,7 +237,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var targetController = new TimerController(null, mockRepository.Object);
+            var targetController = new TimerController(null, mockRepository.Object, null);
 
             // Act - get the sound
             var result = targetController.GetSoundById(sound.ID);
@@ -261,7 +261,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var targetController = new TimerController(null, mockRepository.Object);
+            var targetController = new TimerController(null, mockRepository.Object, null);
 
             // Act - get the sound
             var result = targetController.GetSoundById(sound.ID);

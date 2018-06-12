@@ -25,7 +25,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             // Action
             var result

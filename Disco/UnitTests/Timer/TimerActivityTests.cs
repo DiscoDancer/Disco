@@ -26,7 +26,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             // Action
             var result
@@ -54,7 +54,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             // Act
             var p1 = MVCHelper.GetViewModel<CaptionActivity>(target.EditActivity(1));
@@ -81,7 +81,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
 
             // Act
@@ -98,7 +98,7 @@ namespace UnitTests.Timer
             var mock = new Mock<IRepository<TimerActivity>>();
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             var activity = new TimerActivity { Name = "Potato" };
 
@@ -119,7 +119,7 @@ namespace UnitTests.Timer
             var mock = new Mock<IRepository<TimerActivity>>();
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             var activity = new TimerActivity { Name = "Potato" };
 
@@ -150,7 +150,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             // Act - delete the product
             target.DeleteActivity(activity.ID);
@@ -174,7 +174,7 @@ namespace UnitTests.Timer
             }.AsQueryable());
 
             // Arrange - create a controller
-            var target = new TimerController(mock.Object, null);
+            var target = new TimerController(mock.Object, null, null);
 
             // Act - delete the product
             target.DeleteActivity(activity.ID);

@@ -25,6 +25,7 @@ namespace WebApplication
 
             services.AddTransient<IRepository<TimerActivity>, EFActivityRepository>();
             services.AddTransient<IRepository<TimerSound>, EFSoundRepository>();
+            services.AddTransient<IRepository<TimerLog>, EFLogRepository>();
 
             services.AddMvc();
             services.AddSession();
