@@ -18,11 +18,23 @@ namespace WebApplication.Controllers.Timer
         }
 
         [HttpGet]
-        public ViewResult EditSound(int soundId)
+        public IActionResult EditSound(int soundId)
         {
             ViewBag.SubHeader = "Edit Sound";
 
-            return View(new EditSoundViewModel());
+            var sound = _soundsRepository
+                .GetAll()
+                .FirstOrDefault(x => x.ID == soundId);
+
+            if (sound == null) return null;
+
+            var model = new EditSoundViewModel
+            {
+                ID = soundId,
+                Name = sound.Name
+            };
+
+            return View(model);
         }
 
         public IActionResult GetSoundById(int id)
@@ -31,7 +43,7 @@ namespace WebApplication.Controllers.Timer
 
             if (sound?.Data == null || sound.Data.Length == 0)
             {
-                return NotFound();
+                return null;
             }
 
             var memory = new MemoryStream(sound.Data)
@@ -85,6 +97,13 @@ namespace WebApplication.Controllers.Timer
 
         public IActionResult DeleteSound(int soundId)
         {
+            var deletedSound = _soundsRepository.Delete(soundId);
+
+            if (deletedSound != null)
+            {
+                TempData["message"] = $"Sound {deletedSound.Name} was deleted";
+            }
+
             return RedirectToAction("EditSounds");
         }
     }
