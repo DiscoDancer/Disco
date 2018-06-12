@@ -32,6 +32,7 @@ namespace WebApplication.TagHelpers
             result.InnerHtml.AppendHtml(playControls);
 
             output.Content.AppendHtml(result.InnerHtml);
+            output.Attributes.Add("class", "custom-audio-component");
             output.TagName = "span";
         }
 
