@@ -1,4 +1,8 @@
-﻿(function () {
+﻿import ApiService from "./api-service";
+
+(function () {
+
+    ApiService.addLog(1).then(() => console.log("success"));
 
     const isFrontPage = document.getElementsByClassName("timer-frontpage").length > 0;
 

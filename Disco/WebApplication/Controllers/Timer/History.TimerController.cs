@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models.Timer;
+using WebApplication.Models.ViewModels.Timer;
 
 namespace WebApplication.Controllers.Timer
 {
@@ -25,11 +26,11 @@ namespace WebApplication.Controllers.Timer
         #region API
 
         [HttpPost]
-        public IActionResult AddLog(int activityId)
+        public IActionResult AddLog(AddLogViewModel model)
         {
             var activity = _activityRepository
                 .GetAll()
-                .FirstOrDefault(x => x.ID == activityId);
+                .FirstOrDefault(x => x.ID == model.ActivityId);
 
             if (activity == null) return NotFound();
 

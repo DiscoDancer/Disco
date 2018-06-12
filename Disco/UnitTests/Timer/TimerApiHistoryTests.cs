@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Controllers.Timer;
 using WebApplication.Models.Timer;
+using WebApplication.Models.ViewModels.Timer;
 using Xunit;
 
 namespace UnitTests.Timer
@@ -16,7 +17,7 @@ namespace UnitTests.Timer
             var mockRepositoryLog = new Mock<IRepository<TimerLog>>();
             var mockRepositoryActivity = new Mock<IRepository<TimerActivity>>();
 
-            var activity = new TimerActivity {ID = 1, Name = "Sport"};
+            var activity = new TimerActivity { ID = 1, Name = "Sport" };
 
             mockRepositoryActivity.Setup(m => m.GetAll()).Returns(new[]
             {
@@ -27,7 +28,10 @@ namespace UnitTests.Timer
             var target = new TimerController(mockRepositoryActivity.Object, null, mockRepositoryLog.Object);
 
             // action
-            var result = target.AddLog(activity.ID);
+            var result = target.AddLog(new AddLogViewModel
+            {
+                ActivityId = activity.ID
+            });
 
             mockRepositoryLog.Verify(m => m.Save(It.IsAny<TimerLog>()));
 
@@ -52,7 +56,10 @@ namespace UnitTests.Timer
             var target = new TimerController(mockRepositoryActivity.Object, null, mockRepositoryLog.Object);
 
             // action
-            var result = target.AddLog(activity.ID);
+            var result = target.AddLog(new AddLogViewModel
+            {
+                ActivityId = activity.ID
+            });
 
             // Assert
             mockRepositoryLog.Verify(m => m.Save(It.IsAny<TimerLog>()), Times.Never);
