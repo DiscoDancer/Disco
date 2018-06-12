@@ -3,6 +3,7 @@ using System.Linq;
 using Moq;
 using UnitTests.Services;
 using WebApplication.Controllers;
+using WebApplication.Controllers.Timer;
 using WebApplication.Models.Timer;
 using Xunit;
 

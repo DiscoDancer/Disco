@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using UnitTests.Services;
 using WebApplication.Controllers;
+using WebApplication.Controllers.Timer;
 using WebApplication.Models.Timer;
 using WebApplication.Models.ViewModels.Timer;
 using Xunit;
