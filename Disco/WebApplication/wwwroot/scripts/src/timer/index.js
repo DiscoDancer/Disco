@@ -3,7 +3,7 @@
 (function () {
     const isFrontPage = document.getElementsByClassName("timer-frontpage").length > 0;
 
-    const TIMER_DEFAULT_VALUE = 0 * 60 + 5;
+    const TIMER_DEFAULT_VALUE = 25 * 60 + 0;
 
     if (!isFrontPage) return;
 
@@ -65,7 +65,10 @@
         if (window.AppState.totalSeconds === 0) {
             // TODO handle error here
             ApiService.addLog(window.AppState.selectedActivityID)
-                .then(() => { })
+                .then(() => {
+                    const audio = document.getElementsByTagName("audio")[0];
+                    audio.play();
+                })
                 .catch((err) => console.log("error: " + err));
         } else {
             window.AppState.timeOutToken = setTimeout(updateTimer, 1000);
@@ -85,7 +88,6 @@
         const selectedActivityId = selectedOption.dataset.id ? +selectedOption.dataset.id : -1;
 
         window.AppState.selectedActivityID = selectedActivityId;
-        console.log(window.AppState.selectedActivityID);
     }
 
     function subscribeOnSelectValueChanged() {
