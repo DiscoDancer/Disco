@@ -1,9 +1,6 @@
 ﻿import ApiService from "./api-service";
 
 (function () {
-
-    ApiService.addLog(1).then(() => console.log("success"));
-
     const isFrontPage = document.getElementsByClassName("timer-frontpage").length > 0;
 
     const TIMER_DEFAULT_VALUE = 0 * 60 + 5;
@@ -66,7 +63,10 @@
         renderTimer();
 
         if (window.AppState.totalSeconds === 0) {
-            console.log("DONE");
+            // TODO handle error here
+            ApiService.addLog(window.AppState.selectedActivityID)
+                .then(() => { })
+                .catch((err) => console.log("error: " + err));
         } else {
             window.AppState.timeOutToken = setTimeout(updateTimer, 1000);
         }

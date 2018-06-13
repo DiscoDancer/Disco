@@ -26,7 +26,7 @@ namespace WebApplication.Controllers.Timer
         #region API
 
         [HttpPost]
-        public IActionResult AddLog(AddLogViewModel model)
+        public IActionResult AddLog([FromBody] AddLogViewModel model)
         {
             var activity = _activityRepository
                 .GetAll()

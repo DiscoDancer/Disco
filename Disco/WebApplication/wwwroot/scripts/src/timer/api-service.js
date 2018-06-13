@@ -3,7 +3,10 @@
         return fetch("/Timer/AddLog",
             {
                 method: "POST",
-                body: { ActivityId: activityId }
+                body: JSON.stringify({ activityId }),
+                headers: {
+                    'content-type': 'application/json'
+                }
             });
     }
 }
