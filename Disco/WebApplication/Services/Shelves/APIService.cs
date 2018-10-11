@@ -8,11 +8,14 @@ namespace WebApplication.Services.Shelves
         private const string Key = "Mo878oUEd5nAWZaMqqcbg";
         private const string Id = "80865068";
 
-        internal static string GetCurrentShelfContent()
-        => GetShelfContent(Shelf.CurrentGoodReadsName);
+        internal static string CurrentShelfContent
+            => GetShelfContent(Shelf.CurrentGoodReadsName);
 
-        internal static string GetReadShelfContent()
-        => GetShelfContent(Shelf.ReadGoodReadsName);
+        internal static string ToReadShelfContent
+            => GetShelfContent(Shelf.ReadGoodReadsName);
+
+        internal static string WantShelfContent
+            => GetShelfContent(Shelf.ToReadGoodReadsName);
 
         private static string GetShelfContent(string shelf)
         {

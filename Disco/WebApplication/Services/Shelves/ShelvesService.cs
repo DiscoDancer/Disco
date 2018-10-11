@@ -4,34 +4,19 @@ namespace WebApplication.Services.Shelves
 {
     internal static class ShelvesService
     {
-        private const string Key = "Mo878oUEd5nAWZaMqqcbg";
+        public static Shelf WantToReadShelf =>
+            CreateShelf(APIService.WantShelfContent);
 
-        public static Shelf CurrentShelf
-        {
-            get
+        public static Shelf CurrentShelf =>
+            CreateShelf(APIService.CurrentShelfContent);
+
+        public static Shelf ToReadShelf =>
+            CreateShelf(APIService.ToReadShelfContent);
+
+        private static Shelf CreateShelf(string xmlContent) =>
+            new Shelf
             {
-                var xmlContent = APIService.GetCurrentShelfContent();
-                var xmlDoc = XmlService.CreateXmlDocument(xmlContent);
-
-                return new Shelf
-                {
-                    Books = XmlService.ParseBooks(xmlDoc)
-                };
-            }
-        }
-
-        public static Shelf ReadShelf
-        {
-            get
-            {
-                var xmlContent = APIService.GetReadShelfContent();
-                var xmlDoc = XmlService.CreateXmlDocument(xmlContent);
-
-                return new Shelf
-                {
-                    Books = XmlService.ParseBooks(xmlDoc)
-                };
-            }
-        }
+                Books = XmlService.ParseBooks(XmlService.CreateXmlDocument(xmlContent))
+            };
     }
 }
