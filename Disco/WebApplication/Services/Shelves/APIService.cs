@@ -1,20 +1,20 @@
 ﻿using RestSharp;
-using WebApplication.Models.Resume;
+using WebApplication.Models.Shelves;
 
-namespace WebApplication.Services.Resume
+namespace WebApplication.Services.Shelves
 {
     internal static class APIService
     {
         private const string Key = "Mo878oUEd5nAWZaMqqcbg";
         private const string Id = "80865068";
 
-        public static string SendRequestForCurrentShelf()
-        => SendRequestForShelf(CurrentShelf.GoodReadsName);
+        internal static string GetCurrentShelfContent()
+        => GetShelfContent(Shelf.CurrentGoodReadsName);
 
-        public static string SendRequestForReadShelf()
-        => SendRequestForShelf(ReadShelf.GoodReadsName);
+        internal static string GetReadShelfContent()
+        => GetShelfContent(Shelf.ReadGoodReadsName);
 
-        private static string SendRequestForShelf(string shelf)
+        private static string GetShelfContent(string shelf)
         {
             var client = new RestClient("https://www.goodreads.com");
             var request = new RestRequest("/review/list?v=2 ", Method.GET);

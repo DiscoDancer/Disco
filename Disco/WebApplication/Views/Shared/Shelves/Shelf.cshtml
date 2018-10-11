@@ -1,11 +1,11 @@
-﻿@model WebApplication.Models.Resume.Shelf
+﻿@model WebApplication.Models.ViewModels.Shelves.ShelfViewModel
 
 <div class="shelf">
     <h1 class="shelf-name">@Model.Name</h1>
 
     @foreach (var book in Model.Books)
     {
-        @Html.Partial("Resume/Book", book)
+        @Html.Partial("Shelves/Book", book)
     }
 
 </div>

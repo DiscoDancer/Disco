@@ -1,6 +1,6 @@
-﻿using WebApplication.Models.Resume;
+﻿using WebApplication.Models.Shelves;
 
-namespace WebApplication.Services.Resume
+namespace WebApplication.Services.Shelves
 {
     internal static class ShelvesService
     {
@@ -10,10 +10,10 @@ namespace WebApplication.Services.Resume
         {
             get
             {
-                var xmlContent = APIService.SendRequestForCurrentShelf();
+                var xmlContent = APIService.GetCurrentShelfContent();
                 var xmlDoc = XmlService.CreateXmlDocument(xmlContent);
 
-                return new CurrentShelf
+                return new Shelf
                 {
                     Books = XmlService.ParseBooks(xmlDoc)
                 };
@@ -24,10 +24,10 @@ namespace WebApplication.Services.Resume
         {
             get
             {
-                var xmlContent = APIService.SendRequestForReadShelf();
+                var xmlContent = APIService.GetReadShelfContent();
                 var xmlDoc = XmlService.CreateXmlDocument(xmlContent);
 
-                return new ReadShelf
+                return new Shelf
                 {
                     Books = XmlService.ParseBooks(xmlDoc)
                 };

@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Xml;
-using WebApplication.Models.Resume;
+using WebApplication.Models.Shelves;
 
-namespace WebApplication.Services.Resume
+namespace WebApplication.Services.Shelves
 {
     internal static class XmlService
     {
@@ -24,7 +24,7 @@ namespace WebApplication.Services.Resume
 
             var reviews = document.GetElementsByTagName("review");
 
-            for (int i = 0; i < reviews.Count; i++)
+            for (var i = 0; i < reviews.Count; i++)
             {
                 list.Add(GetBookFromReviewNode(reviews[i]));
             }
@@ -51,18 +51,18 @@ namespace WebApplication.Services.Resume
         private static string GetAuthorsFromReviewNode(XmlNode node)
         {
             var authors = node.SelectNodes("book/authors/author");
-            var authors_list = new List<string>();
+            var authorsList = new List<string>();
 
             for (var j = 0; j < authors.Count; j++)
             {
                 var authorStr = authors[j].SelectSingleNode("name").InnerText;
                 if (!string.IsNullOrWhiteSpace(authorStr))
                 {
-                    authors_list.Add(authorStr);
+                    authorsList.Add(authorStr);
                 }
             }
 
-            return authors_list.Aggregate((x, y) => $"{x};{y}");
+            return authorsList.Aggregate((x, y) => $"{x};{y}");
         }
     }
 }

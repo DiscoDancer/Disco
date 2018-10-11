@@ -1,9 +1,9 @@
-﻿@model IEnumerable<WebApplication.Models.Resume.Shelf>
+﻿@model IEnumerable<WebApplication.Models.ViewModels.Shelves.ShelfViewModel>
 
 <article id="resume">
     @foreach (var shelf in Model)
     {
-        @Html.Partial("Resume/Shelf", shelf)
+        @Html.Partial("Shelves/Shelf", shelf)
     }
 </article>
 

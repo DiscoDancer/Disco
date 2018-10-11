@@ -34,7 +34,7 @@ namespace WebApplication
 
                 routes.MapRoute(
                     name: "default_route",
-                    template: "{controller=Resume}/{action=Index}");
+                    template: "{controller=Shelves}/{action=Index}");
             });
         }
     }
