@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApplication.Models;
-using WebApplication.Models.Timer;
 
 namespace WebApplication
 {
@@ -19,14 +16,6 @@ namespace WebApplication
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration["Data:BusinessLogic:ConnectionString"]));
-
-            services.AddTransient<IRepository<TimerActivity>, EFActivityRepository>();
-            services.AddTransient<IRepository<TimerSound>, EFSoundRepository>();
-            services.AddTransient<IRepository<TimerLog>, EFLogRepository>();
-
             services.AddMvc();
             services.AddSession();
         }
@@ -41,18 +30,6 @@ namespace WebApplication
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: null,
-                    template: "Timer/EditActivity{activityId:int}",
-                    defaults: new { controller = "Timer", action = "EditActivity" }
-                );
-
-                routes.MapRoute(
-                    name: null,
-                    template: "Timer/EditSound{soundId:int}",
-                    defaults: new { controller = "Timer", action = "EditSound" }
-                );
-
                 routes.MapRoute(name: null, template: "{controller}/{action}");
 
                 routes.MapRoute(
